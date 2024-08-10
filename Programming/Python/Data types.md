@@ -129,3 +129,12 @@ print(abs(-10))
 Bool - true, false
 если аргумент числовой bool - True кроме 0 если ноль то false
 если аргумент строчный bool - True кроме none если none то false
+
+## Random | Randint
+>>> import random
+      >>> print(random.randint(1, 100))
+      58      >>> print(random.randint(100, 1000))
+      861      >>> print(random.randint(1000, 5000))
+      3795
+
+
