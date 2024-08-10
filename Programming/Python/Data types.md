@@ -36,8 +36,3 @@ a.pop(index) %% удаление по индексу %%
 a.remove(value) %% Удаление первого первого совпадения по значению %%
 
 ```
-
-
-item-data
-itemData
-item_data
