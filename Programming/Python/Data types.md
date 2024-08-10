@@ -111,3 +111,6 @@ else:
               print('Что-что?')
 ```
 
+## While | For
+
+for 
