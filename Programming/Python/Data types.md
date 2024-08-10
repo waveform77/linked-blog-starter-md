@@ -120,3 +120,12 @@ while вплоть до условия
 ```python
 class Penises(Animate) %% Animate предок Penises %%
 ```
+## Встроенные функции python
+Abs - возвращает абсолютное значение (модуль)
+```python
+print(abs(-10))
+10
+```
+Bool - true, false
+если аргумент числовой bool - True кроме 0 если ноль то false
+если аргумент строчный bn
