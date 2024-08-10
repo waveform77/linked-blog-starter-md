@@ -128,4 +128,4 @@ print(abs(-10))
 ```
 Bool - true, false
 если аргумент числовой bool - True кроме 0 если ноль то false
-если аргумент строчный bn
+если аргумент строчный bool - True кроме none если none то false
