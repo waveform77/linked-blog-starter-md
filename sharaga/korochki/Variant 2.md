@@ -345,17 +345,81 @@ admin.site.register(Status)
 <head>
     <meta charset="UTF-8">
     <title>HelpDesk</title>
+    <style>
+        :root {
+            --bg: #f5f7fb;
+            --card: #ffffff;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --primary: #2563eb;
+            --border: #e5e7eb;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+        nav {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 20px;
+        }
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            margin-right: 12px;
+            font-weight: 600;
+        }
+        .container {
+            max-width: 900px;
+            margin: 24px auto;
+            background: var(--card);
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+        }
+        h2 { margin-top: 0; }
+        form {
+            display: grid;
+            gap: 12px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        button {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        ul { padding-left: 18px; }
+        .muted { color: var(--muted); }
+        .error { color: #dc2626; }
+        a { color: var(--primary); }
+    </style>
 </head>
 <body>
     <nav>
-        <a href="/">Главная</a> |
-        <a href="/register/">Регистрация</a> |
-        <a href="/login/">Авторизация</a> |
-        <a href="/tasks/">Мои обращения</a> |
+        <a href="/">Главная</a>
+        <a href="/register/">Регистрация</a>
+        <a href="/login/">Авторизация</a>
+        <a href="/tasks/">Мои обращения</a>
         <a href="/tasks/create/">Создать</a>
     </nav>
-    <hr>
-    {% block content %}{% endblock %}
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>
 ````
@@ -367,7 +431,7 @@ admin.site.register(Status)
 {% extends 'base.html' %}
 {% block content %}
 <h2>HelpDesk</h2>
-<p>Добро пожаловать.</p>
+<p class="muted">Добро пожаловать.</p>
 {% endblock %}
 ````
 
@@ -399,7 +463,7 @@ admin.site.register(Status)
     {{ form.as_p }}
     <button type="submit">Войти</button>
 </form>
-<p style="color:red;">{{ error }}</p>
+<p class="error">{{ error }}</p>
 <p><a href="/register/">Еще не зарегистрированы? Регистрация</a></p>
 {% endblock %}
 ````
@@ -415,7 +479,7 @@ admin.site.register(Status)
     {% for t in tasks %}
         <li>{{ t.id }} - {{ t.description }} ({{ t.id_status.name }})</li>
     {% empty %}
-        <li>Нет обращений</li>
+        <li class="muted">Нет обращений</li>
     {% endfor %}
 </ul>
 {% endblock %}
